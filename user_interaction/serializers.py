@@ -28,3 +28,7 @@ class UserInteractionSerializer(serializers.ModelSerializer):
         if instance.is_read:
             validated_data.pop('is_read', None)
         return super(UserInteractionSerializer, self).update(instance, validated_data)
+
+
+class TopContentsResponseSerializer(serializers.Serializer):
+    content_ids = serializers.ListSerializer(child=serializers.IntegerField())
